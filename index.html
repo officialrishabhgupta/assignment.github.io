@@ -7,91 +7,106 @@
     <title>Document</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 </head>
-<body onload="myFunction()" style="padding: 0px;margin: 0">
-
+<body onload="renderPage()" style="padding: 0px;margin: 0">
 <script>
-function myFunction() {}{
-  var headerDiv = document.createElement("DIV");
-   headerDiv.style.width = "100%";
-   headerDiv.style.backgroundColor = "black";
-   headerDiv.style.padding = "20px 0";
-   headerDiv.style.position = "relative";
-   headerDiv.style.display = "flex";
-   headerDiv.style.justifyContent="center";
-   
-   var headerTag = document.createElement("DIV");	
-   headerTag.innerHTML = "DOM Manipulation";
-   headerTag.style.color = "#fff";
-   headerTag.style.fontSize = "25px";
+function displayItems(display,ele) {
+  ele.style.display="flex";
+  if(display==='center'){
+    ele.style.alignItems="center";
+    ele.style.justifyContent="center";
+    ele.style.backgroundColor="black";
+    ele.style.width="100%";
+  }
+  if(display==='space-between'){
+    ele.style.alignItems="center";
+    ele.style.justifyContent="space-between";
+  }
+  return ele;
+}
 
-   headerDiv.appendChild(headerTag);
-   document.body.appendChild(headerDiv);
-  	
+function myHeader(){
+     let headerDiv = document.createElement("DIV");
+     headerDiv=displayItems('center',headerDiv);
+     headerDiv.style.padding = "20px 0";
+     headerDiv.style.position = "relative";
+     
+     let headerTag = document.createElement("DIV");	
+     headerTag.innerHTML = "DOM Manipulation";
+     headerTag.style.color = "#fff";
+     headerTag.style.fontSize = "25px";
+     headerDiv.appendChild(headerTag);
+     document.body.appendChild(headerDiv);
+  }
+  function firstDiv(){
+
+    let firstDiv = document.createElement("DIV");
+    firstDiv=displayItems('center',firstDiv);
+    firstDiv.style.backgroundImage = "url('photographer.jpg')";
+    firstDiv.style.backgroundRepeat = "no-repeat";
+    firstDiv.style.backgroundPosition = "center";
+    firstDiv.style.opacity = '.8';
+    firstDiv.style.height = "450px";
     
-   var firstDiv = document.createElement("DIV");
-   firstDiv.style.backgroundImage = "url('photographer.jpg')";
-   firstDiv.style.backgroundRepeat = "no-repeat";
-   firstDiv.style.backgroundPosition = "center";
-   firstDiv.style.opacity = '0.9';
-   firstDiv.style.height = "450px";
-   firstDiv.style.width = "100%";
-   firstDiv.style.display = "flex";
-   firstDiv.style.justifyContent = "center";
-   firstDiv.style.alignItems = "center";
-   
-   var centerTag = document.createElement("p");	
-   
-   centerTag.style.height = "200px";
-   centerTag.style.width = "25%";
-   centerTag.style.border = "1px solid #fff";
-   centerTag.style.color = "white";
-   centerTag.style.opacity="0.8";
-   centerTag.innerHTML = "NATURE HUB ## <br><br>#Nature | wildlife | landscape | street and travel photographer |<br> experience the world through the eyes of my channel.|<br> #live your adventure ";
-   centerTag.style.fontFamily = "Montserrat";
-   centerTag.style.display = "flex";
-   centerTag.style.justifyContent = "center";
-   centerTag.style.alignItems = "center";
-   centerTag.style.textAlign = "justify";
-   centerTag.style.padding = "0 20px";
-   
-   firstDiv.appendChild(centerTag);
-   
-   document.body.appendChild(firstDiv);
+    let centerTag = document.createElement("p");
+    centerTag=displayItems('center',centerTag);	
+    centerTag.style.height = "200px";
+    centerTag.style.width = "25%";
+    centerTag.style.border = "1px solid #fff";
+    centerTag.style.color = "white";
+    centerTag.style.opacity="0.8";
+    centerTag.innerHTML = "NATURE HUB ## <br><br>#Nature | wildlife | landscape | street and travel photographer |<br> experience the world through the eyes of my channel.|<br> #live your adventure ";
+    centerTag.style.fontFamily = "Montserrat";
+    centerTag.style.padding = "0 20px";
+    firstDiv.appendChild(centerTag);  
+    document.body.appendChild(firstDiv);
+  }
+
+  function mySection(display,ele) {
+  ele.style.display="block";
+
+  if(display==='center'){
+    ele.style.justifyContent="center";
+    ele.style.backgroundColor="black";
+    ele.style.color="white";
+  }
+  if(display==='space-between'){
+    ele.style.alignItems="center";
+    ele.style.justifyContent="space-between";
+    ele.style.backgroundColor="black";
+    ele.style.width="100%";
+    ele.style.textAlign="center";
+    ele.style.color="white";
+  }
+  return ele;
+}
+
+  function myWorks(){
   
-  // Works
-  
-   var secondDiv = document.createElement("DIV");
+   let secondDiv = document.createElement("DIV");
+   secondDiv=mySection('space-between',secondDiv);
    secondDiv.id = "works";
-   secondDiv.style.height = "auto";
-   secondDiv.style.width = "100%";
-   secondDiv.style.backgroundColor = "black";
-   secondDiv.style.justifyContent = "space-between";
-   secondDiv.textAlign = "center";
    secondDiv.style.padding = "20px 0";
 
 
-   var secondfirstheading = document.createElement("h1");
+   let secondfirstheading = document.createElement("h1");
    secondfirstheading.innerHTML = "WORKS";
    secondfirstheading.style.margin = "0px";
-   secondfirstheading.style.textAlign = "center";
-   secondfirstheading.style.color="white";
    secondDiv.appendChild(secondfirstheading);
 
-   var second2heading = document.createElement("h1");
+   let second2heading = document.createElement("h1");
    second2heading.innerHTML = "Photography";
    second2heading.style.paddingLeft = "30px";
    second2heading.style.marginBottom="-30px";
    second2heading.style.textAlign = "start";
-   second2heading.style.color="white";
    secondDiv.appendChild(second2heading);
    
-   var secondfirstDiv = document.createElement("DIV");
+   let secondfirstDiv = document.createElement("DIV");
+   secondfirstDiv=mySection('center',secondfirstDiv)
    secondfirstDiv.style.display = "flex";
    secondfirstDiv.style.padding = "40px 80px";
-   secondfirstDiv.style.justifyContent = "center";
    secondDiv.appendChild(secondfirstDiv);
    
-  var works =[{'src':"./photographer.jpg"},
+  let works =[{'src':"./photographer.jpg"},
   {'src':"./badaimambada.jpg"},
   {'src':"./badaimambada1.jpg"},
   {'src':"./botanicalgarden.jpg"},
@@ -99,80 +114,55 @@ function myFunction() {}{
   ]
     
     works.forEach(index => {
-        var centerDiv = document.createElement("img");	
+        let centerDiv = document.createElement("img");	
         centerDiv.src = index.src;
         centerDiv.style.width = "21%";
         centerDiv.style.padding = "2px";
         centerDiv.style.margin = "4px";
         centerDiv.style.boxShadow = "2px 4px 8px grey";
         secondfirstDiv.appendChild(centerDiv);
-    });
-   
-   document.body.appendChild(secondDiv);
+    }); 
+   document.body.appendChild(secondDiv); 
+  }
 
-   //some more work
-   
-   var secondfirstDiv = document.createElement("DIV");
-   secondfirstDiv.style.display = "flex";
-   secondfirstDiv.style.padding = "40px 80px";
-   secondfirstDiv.style.justifyContent = "center";
-   secondDiv.appendChild(secondfirstDiv);
-   
-  var works =[{'src':"./gurdwara.jpg"},
-  {'src':"./haridwar.jpg"},
-  {'src':"./humayuntomb.jpg"},
-  {'src':"./lotustemple.jpg"},
-  {'src':"./christmas.jpg"},
-  ]
-    
-    works.forEach(index => {
-        var centerDiv = document.createElement("img");	
-        centerDiv.src = index.src;
-        centerDiv.style.width = "21%";
-        centerDiv.style.padding = "2px";
-        centerDiv.style.margin = "4px";
-        centerDiv.style.boxShadow = "2px 4px 8px grey";
-        secondfirstDiv.appendChild(centerDiv);
-    });
-   
-   document.body.appendChild(secondDiv);
-
-  var thirdDiv = document.createElement("DIV");
-   thirdDiv.style.width = "100%";
-   thirdDiv.style.backgroundColor = "black";
-
-   var hTag = document.createElement("DIV");
-   
-   hTag.style.fontSize = "20px";
-   hTag.style.color = "white";
-   
-   hTag.innerHTML = "Photographer <br> #nature | wildlife | landscape | street and travel photographer <br>#experience the world through the eyes of my website <br> #live your adventure<br>Follow us"
-   
-   thirdDiv.appendChild(hTag);
-   
-   document.body.appendChild(thirdDiv);
-  	
-
-   //Footer
-
-   var footerDiv = document.createElement("DIV");
+  function myDiv(){
+    let thirdDiv = document.createElement("DIV");
+    thirdDiv=mySection('space-between',thirdDiv);
+    thirdDiv.style.textAlign="start";
+    let hTag = document.createElement("DIV");
+    hTag.style.fontSize = "20px";
+    hTag.innerHTML = "Photographer <br> #nature | wildlife | landscape | street and travel photographer <br>#experience the world through the eyes of my website <br> #live your adventure<br>Follow us"
+    thirdDiv.appendChild(hTag);
+    document.body.appendChild(thirdDiv);
+  }
+  
+  function myBox(display,ele) {
+  ele.style.display="flex";
+  if(display==='center'){
+    ele.style.justifyContent="center";
+    ele.style.alignItems="center";
+  }
+  if(display==='space-between'){
+    ele.style.alignItems="center";
+    ele.style.justifyContent="space-between";
+    ele.style.width="100%";
+    ele.style.color="white";
+  }
+  return ele;
+}
+  
+  function myFooter(){
+    let footerDiv=document.createElement("DIV");
+    footerDiv=myBox('center',footerDiv);
    firstDiv.id = "contactus";
    footerDiv.id = "contactus";
-   footerDiv.style.height = "auto";
-   footerDiv.style.width = "100%";
    footerDiv.style.backgroundColor = "dimgrey";
    footerDiv.style.display = "flex";
-   footerDiv.style.justifyContent = "center";
-   footerDiv.style.alignItems = "center";
    
-   var divContainer = document.createElement("div");
-   divContainer.style.width= "100%";
-   divContainer.style.display = "flex";
-   divContainer.style.justifyContent = "space-between";
-   divContainer.style.alignItems = "center";
+   let divContainer = document.createElement("div");
+   divContainer=myBox('space-between',divContainer);
    divContainer.style.paddingLeft = "10px";
    divContainer.style.paddingRight = "10px";
-   divContainer.style.color = "white";
    var footerFirstDiv = document.createElement("div");
    footerFirstDiv.innerHTML = "© Copyright By Rishabh Photography.<br><br> All Rights Reserved";
    footerFirstDiv.style.width = "70%";
@@ -183,18 +173,19 @@ function myFunction() {}{
    footerSecondDiv.innerHTML = "Contact Us - &nbsp;&nbsp;<i class='fa fa-phone'></i> +1 (517)400-2159 &nbsp;&nbsp;<br><br><i class='fa fa-envelope-o'></i> rishabhgupta7210012474@gmail.com";
    footerSecondDiv.style.width = "30%";
    footerSecondDiv.style.height = "auto";
-   
    divContainer.appendChild(footerFirstDiv);
-   divContainer.appendChild(footerSecondDiv);
-   
+   divContainer.appendChild(footerSecondDiv);   
    footerDiv.appendChild(divContainer);  
-   
    document.body.appendChild(footerDiv);
-}
+  }
 
-  
-   
+  function renderPage(){
+    myHeader();
+    firstDiv();
+    myWorks();
+    myDiv();
+    myFooter();
+  }   
 </script>
-
 </body>
 </html>
